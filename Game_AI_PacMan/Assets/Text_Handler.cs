@@ -8,7 +8,6 @@ public class Text_Handler : MonoBehaviour {
     public TextAsset MAZE;
     // Use this for initialization
     void Start() {
-        ReadString();
     } 
 
     // Update is called once per frame
@@ -21,7 +20,7 @@ public class Text_Handler : MonoBehaviour {
 
     }
 
-    public void ReadString()
+    public List<string[]> ReadString()
     {
         string maze = MAZE.text;
         string[] mLines = Regex.Split(maze, "\n");
@@ -36,16 +35,7 @@ public class Text_Handler : MonoBehaviour {
             Maze.Add(character);
         }
 
-        string LINE = "";
-        for(int i = 0; i < Maze.Count; i++)
-        {
-            foreach(string x in Maze[i])
-            {
-                LINE += x;
-            }
-            Debug.Log(LINE + "\n");
-            LINE = "";
 
-        }
+        return Maze;
     }
 }

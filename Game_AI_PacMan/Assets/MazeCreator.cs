@@ -26,8 +26,8 @@ public class MazeCreator : MonoBehaviour {
         //SETUP
         List<string[]> Maze = gameObject.GetComponent<Text_Handler>().ReadString();
 
-        startingX = -5.00f;
-        startingY = 6.00f;
+        startingX = -7.00f;
+        startingY = 8.50f;
 
         X = startingX;
 
@@ -68,9 +68,9 @@ public class MazeCreator : MonoBehaviour {
                     {
                         if (Maze[i][j + 1].Contains("w") && Maze[i + 1][j].Contains("w"))
                         {
-                            Corner.GetComponent<SpriteRenderer>().flipX = false;
-                            Corner.GetComponent<SpriteRenderer>().flipY = false;
-                           temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.identity);
+                            //Corner.GetComponent<SpriteRenderer>().flipX = false;
+                            //Corner.GetComponent<SpriteRenderer>().flipY = false;
+                           temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.Euler(0, 0, 180));
                             temp.transform.parent = MAZE.transform;
                         }
                         
@@ -80,9 +80,9 @@ public class MazeCreator : MonoBehaviour {
                         if (Maze[i][j - 1].Contains("w") && Maze[i - 1][j].Contains("w"))
                         {
                             
-                            Corner.GetComponent<SpriteRenderer>().flipX = true;
-                            Corner.GetComponent<SpriteRenderer>().flipY = true;
-                            temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.identity);
+                            //Corner.GetComponent<SpriteRenderer>().flipX = true;
+                            //Corner.GetComponent<SpriteRenderer>().flipY = true;
+                            temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.Euler(0, 0, 0));
                             temp.transform.parent = MAZE.transform;
                         }
                     }
@@ -90,9 +90,9 @@ public class MazeCreator : MonoBehaviour {
                     {
                          if(Maze[i][j+1].Contains("w") && Maze[i - 1][j].Contains("w"))
                         {
-                            Corner.GetComponent<SpriteRenderer>().flipX = false;
-                            Corner.GetComponent<SpriteRenderer>().flipY = true;
-                           temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.identity);
+                            //Corner.GetComponent<SpriteRenderer>().flipX = false;
+                            //Corner.GetComponent<SpriteRenderer>().flipY = true;
+                            temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.Euler(0, 0, -90));
                             temp.transform.parent = MAZE.transform;
                         }
                     }
@@ -100,9 +100,9 @@ public class MazeCreator : MonoBehaviour {
                     {
                         if(Maze[i][j-1].Contains("w") && Maze[i + 1][j].Contains("w"))
                         {
-                            Corner.GetComponent<SpriteRenderer>().flipX = true;
-                            Corner.GetComponent<SpriteRenderer>().flipY = false;
-                           temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.identity);
+                            //Corner.GetComponent<SpriteRenderer>().flipX = true;
+                            //Corner.GetComponent<SpriteRenderer>().flipY = false;
+                            temp = GameObject.Instantiate(Corner, new Vector3(X, startingY, 0), Quaternion.Euler(0, 0, 90));
                             temp.transform.parent = MAZE.transform;
                         }
                     }

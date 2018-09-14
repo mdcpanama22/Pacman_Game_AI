@@ -12,6 +12,11 @@ public class MazeCreator : MonoBehaviour {
     public GameObject Pellet;
     public GameObject SuperPellet;
 
+    public GameObject Blinky;
+    public GameObject Inky;
+    public GameObject Pinky;
+    public GameObject Clyde;
+
     private float startingX;
     private float startingY;
 
@@ -137,6 +142,21 @@ public class MazeCreator : MonoBehaviour {
                 else if (Maze[i][j].Contains("Q"))
                 {
                     GameObject.Instantiate(SuperPellet, new Vector3(X, startingY, 0), Quaternion.identity);
+                }else if (Maze[i][j].Contains("b"))
+                {
+                    GameObject.Instantiate(Blinky, new Vector3(X, startingY, 0), Quaternion.identity);
+                }
+                else if (Maze[i][j].Contains("I"))
+                {
+                    GameObject.Instantiate(Inky, new Vector3(X, startingY, 0), Quaternion.identity);
+                }
+                else if (Maze[i][j].Contains("P"))
+                {
+                    GameObject.Instantiate(Pinky, new Vector3(X, startingY, 0), Quaternion.identity);
+                }
+                else if (Maze[i][j].Contains("C"))
+                {
+                    GameObject.Instantiate(Clyde, new Vector3(X, startingY, 0), Quaternion.identity);
                 }
                 else
                 {

@@ -11,10 +11,10 @@ w w w w w w p w w w w w n w w n w w w w w p w w w w w w
 B B B B B w p w w w w w n w w n w w w w w p w B B B B B
 B B B B B w p w w n n n n n n n n n n w w p w B B B B B
 B B B B B w p w w n w w w D D w w w n w w p w B B B B B
-w w w w w w p w w n w I I P P C C w n w w p w w w w w w
-W B B B B B p n n n w I I P P C C w n n n p B B B B B W
-w w w w w w p w w n w I I P P C C w n w w p w w w w w w
-B B B B B w p w w n w I I P P C C w n w w p w B B B B B
+w w w w w w p w w n w x x P x x x w n w w p w w w w w w
+W B B B B B p b n n w x x x x x x w n n n p B B B B B W
+w w w w w w p w w n w x I x x x x w n w w p w w w w w w
+B B B B B w p w w n w x x x x C x w n w w p w B B B B B
 B B B B B w p w w n w w w w w w w w n w w p w B B B B B
 B B B B B w p w w n n n n n n n n n n w w p w B B B B B
 w w w w w w p w w n w w w w w w w w n w w p w w w w w w

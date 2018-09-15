@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 
 public class Text_Handler : MonoBehaviour {
     public TextAsset MAZE;
+    public TextAsset HIGHSCORE;
     // Use this for initialization
     void Start() {
     } 

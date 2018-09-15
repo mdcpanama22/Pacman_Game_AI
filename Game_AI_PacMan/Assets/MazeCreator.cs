@@ -17,6 +17,7 @@ public class MazeCreator : MonoBehaviour {
     public GameObject Pinky;
     public GameObject Clyde;
 
+    public GameObject Pacman;
     private float startingX;
     private float startingY;
 
@@ -26,6 +27,13 @@ public class MazeCreator : MonoBehaviour {
     private GameObject tmpObj;
 
     public GameObject MAZE;
+    public GameObject YUMMY;
+
+    private GameObject systemG;
+
+    public float STARTX;
+    public float STARTY;
+
 	// Use this for initialization
 	void Start () {
         //SETUP
@@ -37,6 +45,8 @@ public class MazeCreator : MonoBehaviour {
         X = startingX;
 
         TOLERANCE = 0.48f;
+
+        systemG = GameObject.Find("EventSystem");
 
         SetupBoard(Maze);
 
@@ -50,9 +60,22 @@ public class MazeCreator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        if (systemG.gameObject.GetComponent<Game>().getStart())
+        {
+            if(YUMMY.transform.childCount == 0)
+            {
 
+            }
+        }
+
+    }
+    public void RespawnPacman(int score)
+    {
+        GameObject tempPac;
+        tempPac = GameObject.Instantiate(Pacman, new Vector3(STARTX, STARTY, 0), Quaternion.identity);
+        tempPac.gameObject.GetComponent<PacManController>()._rScore = score;
+
+    }
     //FOR NOW IT WILL ONLY DEAL WITH A BASIC BORDER
     public void SetupBoard(List<string[]> Maze)
     {
@@ -133,15 +156,17 @@ public class MazeCreator : MonoBehaviour {
                 }
                 else if (Maze[i][j].Contains("B"))
                 {
-                    GameObject.Instantiate(Empty, new Vector3(X, startingY, 0), Quaternion.identity);
+                    //GameObject.Instantiate(Empty, new Vector3(X, startingY, 0), Quaternion.identity);
                 }
                 else if (Maze[i][j].Contains("p"))
                 {
-                    GameObject.Instantiate(Pellet, new Vector3(X, startingY, 0), Quaternion.identity);
+                   temp = GameObject.Instantiate(Pellet, new Vector3(X, startingY, 0), Quaternion.identity);
+                    temp.transform.parent = YUMMY.transform;
                 }
                 else if (Maze[i][j].Contains("Q"))
                 {
-                    GameObject.Instantiate(SuperPellet, new Vector3(X, startingY, 0), Quaternion.identity);
+                    temp = GameObject.Instantiate(SuperPellet, new Vector3(X, startingY, 0), Quaternion.identity);
+                    temp.transform.parent = YUMMY.transform;
                 }else if (Maze[i][j].Contains("b"))
                 {
                     GameObject.Instantiate(Blinky, new Vector3(X, startingY, 0), Quaternion.identity);
@@ -157,6 +182,12 @@ public class MazeCreator : MonoBehaviour {
                 else if (Maze[i][j].Contains("C"))
                 {
                     GameObject.Instantiate(Clyde, new Vector3(X, startingY, 0), Quaternion.identity);
+                }
+                else if (Maze[i][j].Contains("S"))
+                {
+                    STARTX = X;
+                    STARTY = startingY;
+                    GameObject.Instantiate(Pacman, new Vector3(X, startingY, 0), Quaternion.identity);
                 }
                 else
                 {
